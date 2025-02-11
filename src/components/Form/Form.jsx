@@ -31,7 +31,7 @@ function Form(props){
             
             <form onSubmit={handleSubmit}>                
                 <div className={style.containerGeneral}>
-                    <div className={style.inputbox}>
+                    <div className={style.inputBox}>
                         <box-icon name='user-circle' type='solid' color={colorIcons} ></box-icon>
                         <input type         = "text" 
                                 name         = "fullName"                     
@@ -39,10 +39,10 @@ function Form(props){
                                 onChange     = {handleChange}
                                 value        = {userData.fullName}  
                         />
-                        <label htmlFor="fullName">Full Name:</label>
+                        <label htmlFor="fullName">Nombre:</label>
                     </div>
 
-                    <div className={style.inputbox}>
+                    <div className={style.inputBox}>
                         <box-icon type='solid' name='envelope' color={colorIcons}></box-icon>
                         <input type         = "text" 
                                 name         = "email"                     
@@ -50,10 +50,10 @@ function Form(props){
                                 onChange     = {handleChange}
                                 value        = {userData.email}  
                         />
-                        <label htmlFor="email">Email:</label>
+                        <label htmlFor="email">Correo:</label>
                     </div>
 
-                    <div className={style.inputbox}>
+                    <div className={style.inputBox}>
                         <box-icon type='solid' name='lock' color={colorIcons}></box-icon>
                         <input type      = "password" 
                             name         = "password"
@@ -61,7 +61,7 @@ function Form(props){
                             onChange     = {handleChange}
                             value        = {userData.password}
                         />
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password">Contraseña:</label>
                     </div>                                        
                 </div>
                 

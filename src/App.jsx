@@ -13,7 +13,7 @@ function App() {
     <div>
       <Routes>
       <Route exact path= "/"
-             element   = { <Form type= "log in"/> } 
+             element   = { <Form type= "Ingresar"/> } 
         > </Route>
 
         <Route exact path= "/home"
