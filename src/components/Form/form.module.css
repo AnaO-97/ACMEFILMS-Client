@@ -24,7 +24,7 @@ form{
 
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;       
 
     /* border: solid 2px red; */
 }
@@ -43,13 +43,15 @@ form{
     top: 50%;
     left: 1vw;
     transform: translateY(-50%);
-    color: white;
+    color: rgba(255, 102, 0, 0.52);
     font-size: 1em;
     pointer-events: none;
     transition: .5s;
 }
 
-.inputBox input:focus ~ label{
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label
+{
     top: -1vh;
 }
 
@@ -76,6 +78,7 @@ button{
     width: 20vw;
     height: 6vh;
     padding: 0.3em;
+    margin: 0.6em;
 
     cursor: pointer;
     font-size: 1em;

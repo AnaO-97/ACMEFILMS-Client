@@ -1,9 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import style from './form.module.css'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginUser } from '../../redux/actions'
 
 function Form(props){
-    const {type} = props
-    const colorIcons = "#f1e3e3"
+    const {type, colorIcons} = props
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const isUser = useSelector(( state )=> state.user)
 
     const [userData,setUserData] = useState({
         fullName : "",
@@ -21,12 +27,38 @@ function Form(props){
         })
     }
 
+    const goToHome = () => {
+        navigate("/home")
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
+
+        dispatch(loginUser(userData))
+
+        if( isUser.fullName !== ""){
+            setUserData({
+                fullName : "",
+                email    : "",
+                password : ""
+            })
+            navigate("/home")
+        }
     }
+
+    useEffect(()=>{
+        if( isUser.fullName ){
+            setUserData({
+                fullName : "",
+                email    : "",
+                password: "",            
+            })
+            navigate("/home");
+        }
+    }, [ isUser ])
+
     return(
         <div className={style.formContainer}>
-            {/* const [ inputs, setInputs ] = useState({}); */}
             <h2>{type.toUpperCase()}</h2>
             
             <form onSubmit={handleSubmit}>                
@@ -38,6 +70,7 @@ function Form(props){
                                 autoComplete = "off"
                                 onChange     = {handleChange}
                                 value        = {userData.fullName}  
+                                required
                         />
                         <label htmlFor="fullName">Nombre:</label>
                     </div>
@@ -49,6 +82,7 @@ function Form(props){
                                 autoComplete = "off"
                                 onChange     = {handleChange}
                                 value        = {userData.email}  
+                                required
                         />
                         <label htmlFor="email">Correo:</label>
                     </div>
@@ -60,12 +94,14 @@ function Form(props){
                             autoComplete = "off"
                             onChange     = {handleChange}
                             value        = {userData.password}
+                            required
                         />
                         <label htmlFor="password">Contraseña:</label>
                     </div>                                        
                 </div>
                 
-                <button type = 'submit'>Enviar</button>
+                <button type= 'submit'>Enviar</button>
+                <button onClick={()=>goToHome()}>Inicio</button>
             </form> 
         </div>
     );

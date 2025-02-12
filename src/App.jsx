@@ -2,18 +2,23 @@
 // import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './components/Home/Home'
-import Form from './components/Form/Form'
+import FormLogin from './components/Form/FormLogin'
+import FormNewFilm from './components/Form/FormNewFilm'
 import Detail from './components/Detail/Detail'
 
 import { Routes, Route, useLocation } from 'react-router-dom'
 
 function App() {
   let { pathname }= useLocation()
+  const colorIcons = "#f1e3e3"
+
   return (
     <div>
       <Routes>
-      <Route exact path= "/"
-             element   = { <Form type= "Ingresar"/> } 
+        <Route exact path= "/"
+             element   = { <FormLogin type= "Ingresar" 
+                                      colorIcons= {colorIcons}
+                          /> } 
         > </Route>
 
         <Route exact path= "/home"
@@ -24,8 +29,10 @@ function App() {
                element   = { <Detail/> } 
         > </Route>
 
-        <Route exact path= "/form"
-               element   = { <Form/> } 
+        <Route exact path= "/newFilm"
+               element   = { <FormNewFilm type= "Nueva Película" 
+                                   colorIcons= {colorIcons}
+                            /> } 
         > </Route>
       </Routes>
     </div>

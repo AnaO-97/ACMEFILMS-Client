@@ -1,0 +1,100 @@
+.formNewFilmContainer{
+    width: 80vw;
+    height: 85vh;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 40px;
+    border-left: solid 2px rgb(255, 102, 0);
+    border-right: solid 2px rgb(255, 102, 0);
+}
+
+.formNewFilmContainer form{
+    width: 80vw;
+    height: 85vh;
+
+    position: absolute;
+
+    /* border: solid 1px green; */
+}
+
+.formNewFilmContainer form .containerGeneral{
+    height: 60vh;
+    width: 80vw;
+    padding-left: 1.5vw;
+    
+    position: absolute;
+    top: 12vh;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5vw;
+    /* height: 100vh; */
+
+    /* border: solid 1px yellow; */
+}
+
+.formNewFilmContainer form button{
+    width: 5vw;
+    position: absolute;
+    bottom: 1vh;    
+}
+
+.formNewFilmContainer form .buttonSend{
+    right: 1vw;
+}
+
+.formNewFilmContainer form .buttonHome{
+    left: 1vw;
+}
+
+.formNewFilmContainer form .containerGeneral .inputBox{
+    position: relative;
+    margin: 2vw 0;
+    width: 23vw;
+    height: 8vh;
+    border-bottom: 2px solid rgb(255, 102, 0);;
+
+    /* border: solid 2px green; */
+}
+
+.formNewFilmContainer form .containerGeneral .inputBox input{
+    position: relative;
+    
+    width: 18vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 0.5vh 0 0.5vh;
+    color: white;
+    background: transparent;
+
+    /* border: solid 2px white; */
+}
+
+.formNewFilmContainer form .containerGeneral .inputBox box-icon{
+    position: absolute;
+    right: 1vw;
+    top: 1.5vh;    
+}
+
+.formNewFilmContainer form .containerGeneral .inputBox label{
+    position: absolute;
+    top: 50%;
+    left: 1vw;
+    transform: translateY(-50%);
+    color: rgba(255, 102, 0, 0.52);
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.formNewFilmContainer form .containerGeneral .inputBox input:focus ~ label,
+.formNewFilmContainer form .containerGeneral .inputBox input:valid ~ label
+{
+    top: -1vh;
+}
