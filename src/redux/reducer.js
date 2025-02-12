@@ -18,11 +18,17 @@ const stateInicial = {
 function reducer (state= stateInicial, action){
     const {type, payload} = action;
 
-    console.log(payload)
     if (type === ACTION.LOGIN_USER){
         return({
             ...state,
             user: {...payload} ,
+        })
+    }
+    
+    if (type === ACTION.NEW_FILM){
+        return({
+            ...state,
+            fullFilmData: [ ...state.fullFilmData, payload ],            
         })
     }
 

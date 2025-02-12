@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import style from './formNewFilm.module.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-// import { loginUser } from '../../redux/actions'
+import { newFilm } from '../../redux/actions'
 
 function FormNewFilm(props){
     const {type, colorIcons} = props
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    // const isUser = useSelector(( state )=> state.user)
+    // const fullFilmData = useSelector((state)=>state.fullFilmData)
 
     const [filmData,setFilmData] = useState({
         title: "",
@@ -40,18 +40,24 @@ function FormNewFilm(props){
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        console.log(filmData)
+        filmData.score = Number(filmData.score)
+        filmData.actors = filmData.actors.split(",").map(item => item.trim());
+        filmData.minimumAge = Number(filmData.minimumAge)       
 
-        // dispatch(loginUser(userData))
+        dispatch(newFilm(filmData)) 
 
-        // if( isUser.fullName !== ""){
-        //     setUserData({
-        //         fullName : "",
-        //         email    : "",
-        //         password : ""
-        //     })
-        //     navigate("/home")
-        // }
+                setFilmData({
+            title: "",
+            image: "",
+            synopsis: "",
+            genre: "",
+            releaseDate: "",
+            minimumAge: "",
+            filmStudio: "",
+            actors: "",
+            score: ""
+        })
+        navigate("/home")     
     }
 
     return(
@@ -105,7 +111,7 @@ function FormNewFilm(props){
                                 value        = {filmData.releaseDate}  
                                 required
                         />
-                        <label htmlFor="releaseDate">Fecha de lanzamiento:</label>
+                        <label htmlFor="releaseDate">Lanzamiento (A/M/D):</label>
                     </div>
 
                     <div className={style.inputBox}>
@@ -117,7 +123,7 @@ function FormNewFilm(props){
                                 value        = {filmData.minimumAge}  
                                 required
                         />
-                        <label htmlFor="minimumAge">Edad mínima para ver la pélicula:</label>
+                        <label htmlFor="minimumAge">Edad mínima de audiencia:</label>
                     </div>
 
                     <div className={style.inputBox}>
@@ -129,7 +135,7 @@ function FormNewFilm(props){
                                 value        = {filmData.score}  
                                 required
                         />
-                        <label htmlFor="score">Puntución:</label>
+                        <label htmlFor="score">Puntución (1-5):</label>
                     </div>
 
                     <div className={style.inputBox}>
@@ -165,6 +171,7 @@ function FormNewFilm(props){
                                 rows="6"
                                 cols="40"
                                 required
+                                style = {{marginRight: '6.5vw'}}
                         />                        
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 .formNewFilmContainer{
-    width: 80vw;
+    width: 90vw;
     height: 85vh;
 
     position: relative;
@@ -12,7 +12,7 @@
 }
 
 .formNewFilmContainer form{
-    width: 80vw;
+    width: 90vw;
     height: 85vh;
 
     position: absolute;
@@ -22,8 +22,8 @@
 
 .formNewFilmContainer form .containerGeneral{
     height: 60vh;
-    width: 80vw;
-    padding-left: 1.5vw;
+    width: 90vw;
+    padding-left: 3.6vw;
     
     position: absolute;
     top: 12vh;
