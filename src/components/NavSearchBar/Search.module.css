@@ -1,0 +1,74 @@
+.searchContainer{
+    position: relative;
+
+    width: 99.5vw;
+    height: 12vh; 
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* border: solid 1px red; */
+}
+
+.searchContainer .searchSelectContainer{
+    position: absolute;
+    width: 99.5vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+
+    /* border: solid 1px yellow; */
+}
+
+.searchContainer .searchSelectContainer .inputBox{
+    height: 4.5vh;
+    width: 13.5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1vw;
+
+    border-radius: 3vw;
+    /* border: solid 1px white; */
+}
+
+.searchContainer .searchSelectContainer .inputBox:hover{
+    background: rgba(255, 255, 255, 0.12);
+    border-bottom: solid 0.1vw rgb(255, 102, 0);
+}
+
+
+.searchContainer .searchInputContainer{
+    width: 99.5vw;
+    height: 5.5vh;
+    padding-bottom: 1vh;
+
+    position: absolute;
+    bottom: 0;  
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* border: solid 2px pink; */
+}
+
+.searchContainer .searchInputContainer input{
+    width: 30vw;
+    height: 4vh;
+}
+
+.searchContainer .searchInputContainer button{
+    width: 4vw;
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

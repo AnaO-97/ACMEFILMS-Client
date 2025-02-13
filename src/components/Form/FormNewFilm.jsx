@@ -45,8 +45,8 @@ function FormNewFilm(props){
         filmData.minimumAge = Number(filmData.minimumAge)       
 
         dispatch(newFilm(filmData)) 
-
-                setFilmData({
+        
+        setFilmData({
             title: "",
             image: "",
             synopsis: "",

@@ -48,3 +48,26 @@ export function newFilm( filmData ) {
         }
     });
 }
+
+export function allFilms() {
+    return ( async (dispatch) => { 
+        let filmsDB = [];
+
+        try {
+            filmsDB = await axios.get(`${server}/film/all`);
+            
+            dispatch({
+                type    : ACTION.ALL_FILMS,
+                payload : filmsDB.data
+            })
+
+        } catch (error) {
+            if( error.response )
+                window.alert(error.response.data);
+            else{
+                console.log(error)
+                window.alert( "Error obteniendo los films" );
+            }
+        }
+    });
+}

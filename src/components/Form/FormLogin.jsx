@@ -27,9 +27,7 @@ function Form(props){
         })
     }
 
-    const goToHome = () => {
-        navigate("/home")
-    }
+    const goToHome = () => navigate("/home")
 
     const handleSubmit = (event) => {
         event.preventDefault()

@@ -2,11 +2,13 @@
 // import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './components/Home/Home'
+import NavBar from './components/NavSearchBar/NavBar'
 import FormLogin from './components/Form/FormLogin'
 import FormNewFilm from './components/Form/FormNewFilm'
 import Detail from './components/Detail/Detail'
 
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function App() {
   let { pathname }= useLocation()
@@ -14,6 +16,12 @@ function App() {
 
   return (
     <div>
+      {
+        pathname !== "/"
+        ? <NavBar colorIcons= {colorIcons} 
+                  pathname= {pathname}/>
+        : null
+      }      
       <Routes>
         <Route exact path= "/"
              element   = { <FormLogin type= "Ingresar" 

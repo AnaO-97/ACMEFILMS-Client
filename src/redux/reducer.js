@@ -3,7 +3,7 @@ import * as ACTION from "./actionsTypes";
 const stateInicial = {
     user:{
         email: "",
-        userType: "",
+        userType: "admin",
         fullName: "",
     },
     filter : {
@@ -29,6 +29,14 @@ function reducer (state= stateInicial, action){
         return({
             ...state,
             fullFilmData: [ ...state.fullFilmData, payload ],            
+        })
+    }
+
+    if (type === ACTION.ALL_FILMS){
+        return({
+            ...state,
+            fullFilmData: [ ...payload ],            
+            copyFilmData: [ ...payload ]
         })
     }
 

@@ -1,0 +1,57 @@
+.navBarContainer{
+    position: fixed;
+    top: 0;
+    right:0.2vw;
+
+    width: 99.5vw;
+    height: 6vh;
+    padding-bottom: 1.5vh;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 1vw;
+    border-bottom: solid 1px rgb(255, 102, 0);
+}
+
+.btnNewFilm{
+    position: fixed;
+    left: 0;
+}
+
+.btnLogin{
+    position: fixed;
+    right: 0;
+}
+
+.buttonBox{
+    width: 11vw;
+    margin-top: 3vh;
+
+    display: flex;
+    align-items: center;       
+    justify-content: space-around;
+}
+
+.buttonBox h4{
+    margin: 0; 
+    font-size: 1.1vw;
+    
+    /* border: solid 1px red; */
+}
+
+.buttonBox h4 box-icon{
+    border: solid 1px green;
+}
+
+.searchContainer{
+    position: fixed;
+    top: 8.5vh;
+    right:0.2vw;
+
+    width: 99.5vw;
+    height: 12vh; 
+        
+    /* border-top: solid 1px rgb(255, 102, 0); */
+    border-bottom: solid 1px rgb(255, 102, 0);
+}
