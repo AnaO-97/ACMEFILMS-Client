@@ -33,12 +33,18 @@ function App() {
                element   = { <Home/> } 
         > </Route>
 
-        <Route exact path= "/detail/:id"
+        <Route exact path= "/detail/:idFilm"
                element   = { <Detail/> } 
         > </Route>
 
         <Route exact path= "/newFilm"
                element   = { <FormNewFilm type= "Nueva Película" 
+                                   colorIcons= {colorIcons}
+                            /> } 
+        > </Route>
+
+        <Route exact path= "/editFilm/:idFilm"
+               element   = { <FormNewFilm type= "Editar Película" 
                                    colorIcons= {colorIcons}
                             /> } 
         > </Route>

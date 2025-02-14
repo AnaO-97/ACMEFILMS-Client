@@ -26,6 +26,32 @@ export function loginUser( userData ) {
     });
 }
 
+export function deleteFilm( idFilm ) {
+    return ( async (dispatch) => { 
+        let filmDeleted = {};
+
+        console.log(idFilm);
+        
+
+        try {
+            filmDeleted = await axios.delete(`${server}/film/delete/${idFilm}`);
+            
+            dispatch({
+                type    : ACTION.DELETE_FILM,
+                payload : filmDeleted.data
+            })
+
+        } catch (error) {
+            if( error.response )
+                window.alert(error.response.data);
+            else{
+                console.log(error)
+                window.alert( "Error eliminando la nueva película" );
+            }
+        }
+    });
+}
+
 export function newFilm( filmData ) {
     return ( async (dispatch) => { 
         let filmCreated = {};
@@ -44,6 +70,32 @@ export function newFilm( filmData ) {
             else{
                 console.log(error)
                 window.alert( "Error creando la nueva película" );
+            }
+        }
+    });
+}
+
+export function editFilm( newFilmData, idFilm ) {
+    return ( async (dispatch) => { 
+        let filmUpdated = {};
+
+        try {
+            filmUpdated = await axios.put(`${server}/film/${idFilm}`, newFilmData);
+            
+            dispatch({
+                type    : ACTION.EDIT_FILM,
+                payload : {
+                    newFilm : {...filmUpdated.data},
+                    idBefore : idFilm
+                }
+            })
+
+        } catch (error) {
+            if( error.response )
+                window.alert(error.response.data);
+            else{
+                console.log(error)
+                window.alert( "Error modificando la película" );
             }
         }
     });
@@ -70,4 +122,18 @@ export function allFilms() {
             }
         }
     });
+}
+
+export function addFilmFavorites(idFilm){
+    return({
+        type: ACTION.ADD_FAVORITES,
+        payload: idFilm
+    })
+}
+
+export function filterFilm(filter){
+    return({
+        type: ACTION.FILTER_FILMS,
+        payload: filter
+    })
 }

@@ -11,6 +11,8 @@
     align-items: center;
     justify-content: center;
 
+    overflow: scroll;
+
     /* border: solid 1px pink; */
 }
 
@@ -23,11 +25,12 @@
 
     border-radius: 1vw;    
 
+    color: white;
     background: rgba(19, 7, 7, 0.377);
     transition: 0.5s;
 }
 
-.allCardsContainer .cardContainer:hover{
+/* .allCardsContainer .cardContainer:hover{
     height: 60vh;
 }
 
@@ -37,6 +40,20 @@
 }
 
 .allCardsContainer .cardContainer:hover .imgContainer{
+    top: -10vh;
+    scale: 0.79;
+} */
+
+.allCardsContainer .cardContainer:has(.imgContainer:hover) {
+    height: 60vh;
+}
+
+.allCardsContainer .cardContainer .imgContainer:hover ~.infoContainer{
+    top: 20vh;
+    height: 250px;
+}
+
+.allCardsContainer .cardContainer .imgContainer:hover{
     top: -10vh;
     scale: 0.79;
 }
@@ -111,6 +128,8 @@
 
     overflow: hidden;
     transition: 0.5s;
+
+    color: white;
     
     /* border: solid 1px blue; */
 }
@@ -126,4 +145,18 @@
     font-size: 1em;
 
     /* border: solid 1px green; */
+}
+
+.allCardsContainer::-webkit-scrollbar {
+    width: 12px;                  /* width of the entire scrollbar */
+}
+  
+.allCardsContainer::-webkit-scrollbar-track {
+    background: rgba(19, 7, 7, 0.377);;        /*color of the tracking area */
+}
+  
+.allCardsContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 102, 0, 0.397);;    /* color of the scroll thumb */
+    border-radius: 2vw;         /* roundness of the scroll thumb */
+    border: 0.1vw solid rgb(255, 102, 0);  /*creates padding around scroll thumb */
 }

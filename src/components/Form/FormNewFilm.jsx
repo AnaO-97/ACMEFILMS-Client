@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react'
 import style from './formNewFilm.module.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { newFilm } from '../../redux/actions'
+import { newFilm, editFilm } from '../../redux/actions'
 
 function FormNewFilm(props){
+    const { idFilm } = useParams()
+
     const {type, colorIcons} = props
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    // const fullFilmData = useSelector((state)=>state.fullFilmData)
+    const fullFilmData = useSelector((state)=>state.fullFilmData)
+
+    const [filmBefore, setFilmBefore] = useState({})
 
     const [filmData,setFilmData] = useState({
         title: "",
@@ -20,7 +24,7 @@ function FormNewFilm(props){
         minimumAge: "",
         filmStudio: "",
         actors: "",
-        score: ""
+        score: "",
     })
 
     const handleChange = (event)=>{
@@ -44,7 +48,12 @@ function FormNewFilm(props){
         filmData.actors = filmData.actors.split(",").map(item => item.trim());
         filmData.minimumAge = Number(filmData.minimumAge)       
 
-        dispatch(newFilm(filmData)) 
+        if(type === "Editar Película"){
+            dispatch(editFilm(filmData, idFilm))
+        }
+        else{
+            dispatch(newFilm(filmData)) 
+        }
         
         setFilmData({
             title: "",
@@ -59,6 +68,28 @@ function FormNewFilm(props){
         })
         navigate("/home")     
     }
+
+    useEffect(()=>{
+        setFilmData({            
+            title: filmBefore.title,
+            image: filmBefore.image,
+            synopsis: filmBefore.synopsis,
+            genre: filmBefore.genre,
+            releaseDate: filmBefore.releaseDate,
+            minimumAge: filmBefore.minimumAge,
+            filmStudio: filmBefore.filmStudio,
+            actors: filmBefore.actors,
+            score: filmBefore.score
+        })
+    },[filmBefore])
+
+    useEffect(()=>{
+        if(type === "Editar Película"){
+            const [auxi] = fullFilmData.filter((film)=>film.id === idFilm)
+
+            setFilmBefore(auxi);
+        }
+    },[idFilm])
 
     return(
         <div className={style.formNewFilmContainer}>
@@ -177,10 +208,10 @@ function FormNewFilm(props){
                 </div>
                 
                 <button className={style.buttonSend} type= 'submit'>
-                    <box-icon name='send' type='solid' color={colorIcons} style={{ fontSize: '0.5em' }} ></box-icon>
+                    <box-icon name='send' color={colorIcons} style={{ fontSize: '0.5em' }} ></box-icon>
                 </button>
-                <button className={style.buttonHome} onClick={()=>goToHome()}>                    
-                    <box-icon name='home' type='solid' color={colorIcons} ></box-icon>
+                <button className={style.buttonHome} onClick={()=>goToHome()}>
+                    <box-icon name='home' color={colorIcons} ></box-icon>
                 </button>
             </form> 
         </div>

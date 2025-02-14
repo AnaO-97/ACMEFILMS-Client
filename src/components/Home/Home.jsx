@@ -1,20 +1,25 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Cards from '../Cards/Cards'
 import { allFilms } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
-function Home(){
+function Home(){    
+    const [ filmsDB, setFilmsDB ] = useState([])
     const dispatch = useDispatch()
 
-    const filmsDB = useSelector(( state )=> state.copyFilmData)
+    const filmsDB_aux = useSelector(( state )=> state.copyFilmData)
 
     useEffect(()=>{
-        dispatch(allFilms())        
+        dispatch(allFilms())
     },[])
+
+    useEffect(()=>{
+        setFilmsDB(filmsDB_aux)
+    },[filmsDB_aux])
 
     return(
         <div>
-            <Cards dataFilms={filmsDB}/>
+            <Cards dataFilms={filmsDB} />
         </div>
     )
 }

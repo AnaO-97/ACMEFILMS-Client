@@ -1,0 +1,156 @@
+.detailContainer{
+    position: fixed;
+    top: 21vh;
+    left:0.2vw;
+
+    height: 78vh;
+    width: 99.5vw;
+
+    /* border: solid 2px red; */
+}
+
+.detailContainer .buttonsBox{
+    position: fixed;
+    top: 21vh;
+    right: 0;
+
+    height: 60vh;
+    width: 5vw;
+    
+    /* border: solid 1px blue; */
+}
+
+.detailContainer .buttonsBox button{
+    width: 4vw;
+    height: 5vh;
+    margin-bottom: 2vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailContainer .headInformation{
+    position: relative;
+    top: 0;
+    left:0.2vw;
+
+    height: 10vh;
+    width: 95vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* border: solid 1px yellow; */
+}
+
+h2,h3,h4{
+    padding: 0;
+    margin: 0;
+}   
+
+.detailContainer .headInformation h4{    
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.detailContainer .headInformation .title{
+    position: absolute;
+
+    width: 80vw;
+    height: 10vh;
+
+    display: flex;
+    flex-direction: column;
+
+    /* border: solid 1px green; */
+}
+
+.detailContainer .imgSynopsis {
+    position: relative;
+    left:0.2vw;
+
+    width: 95vw;
+    height: 50vh;  
+
+    /* border: solid 1px yellow; */
+}
+
+.detailContainer .imgSynopsis .imgContainer{
+    position: absolute;
+    margin-top: 7vh;
+
+    width: 40vw;
+    height: 45vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;  
+    
+    /* border: solid 1px pink; */
+}
+
+.detailContainer .imgSynopsis .imgContainer .score{
+    position: absolute;
+    bottom: -5vh;
+
+    /* border: solid 1px white; */
+}
+
+.detailContainer .imgSynopsis .imgContainer img{
+    position: absolute;
+    left:13vw;
+
+    width: 15vw;
+    height: 43vh;
+
+    border-radius: 2vw;
+    border-left: solid 0.09vw rgb(255, 102, 0);
+    border-right: solid 0.09vw rgb(255, 102, 0);
+
+    box-shadow: 0 0 1vw rgba(235, 223, 215, 0.493);
+}
+
+.detailContainer .imgSynopsis .synopsisAboutFilmBox{
+    position: absolute;
+    left: 40vw;
+
+    width: 55vw;
+    height: 50vh;
+
+    /* border: solid 1px green; */
+}
+
+.detailContainer .imgSynopsis .synopsisAboutFilmBox{
+    position: absolute;
+    width: 55vw;
+    height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    /* border: solid 1px blue; */
+}
+
+.detailContainer .imgSynopsis .synopsisAboutFilmBox .actors{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailContainer .imgSynopsis .synopsisAboutFilmBox .moreInformation{
+    height: 5vh;
+    width: 40vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    /* border: solid 1px red; */
+}

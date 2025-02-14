@@ -36,7 +36,7 @@ function NavBar(props){
                 </button>   
             </div>
 
-            {pathname!=="/newFilm" 
+            {pathname === "/home"
                 ?<div className={style.searchContainer}>
                     <Search colorIcons= {colorIcons}/>     
                 </div>

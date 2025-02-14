@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react'
-import style from './Search.module.css'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import style from './Search.module.css'
+import { filterFilm } from '../../redux/actions'
 
-function Search(props){       
+function Search(props){ 
+    const dispatch = useDispatch()   
+    const navigate = useNavigate()
+
     const {colorIcons}= props
+
     const [filter, setFilter] = useState({
-        by : "",
+        by : "allFilms",
         same: ""
     })
 
-    const isUser = useSelector(( state )=> state.user)
+    const isUser= useSelector(( state )=> state.user)
 
-    const handleChangeFilter = (event)=>{
-        const { name, value } = event.target;
+    const handleChangeFilter= (event)=>{
+        const { name, value }= event.target;
         
         setFilter({
             ...filter,
@@ -20,13 +26,32 @@ function Search(props){
         })
     }
 
+    const handleFilter= ()=>{ 
+        if(filter.by === "id"){
+            navigate(`/detail/${filter.same}`)
+        }
+        else{
+            dispatch(filterFilm(filter))
+        }
+        
+        setFilter({
+            ...filter,
+            same: ""
+        })
+    }
+
+    // useEffect(()=>{
+    //     console.log(filter);
+    // },[filter])
+
     return(
         <div className={style.searchContainer}>
             <div className={style.searchSelectContainer}>
                 <div className={style.inputBox}>
                     <input type= "radio" 
                             name ="by"
-                            value= "allFilms"                            
+                            value= "allFilms"
+                            checked={filter.by === "allFilms"}
                             onChange = {handleChangeFilter}
                     />
                     <label htmlFor="allFilms">Todas</label>
@@ -61,7 +86,7 @@ function Search(props){
                 <div className={style.inputBox}>
                     <input type= "radio" 
                             name ="by"
-                            value= "actor"                    
+                            value= "actors"                    
                             onChange = {handleChangeFilter}
                     />
                     <label htmlFor="actor">Actor</label>
@@ -80,11 +105,19 @@ function Search(props){
                     ? <div className={style.inputBox}>
                         <input type= "radio" 
                                 name ="by"
-                                value= "id"                        
+                                value= "id"  
+                                onChange = {handleChangeFilter}
                         />
                         <label htmlFor="id">Id de película</label>
-                    </div>
-                    : null
+                      </div>
+                    : <div className={style.inputBox}>
+                        <input type= "radio" 
+                                name ="by"
+                                value= "favorites"  
+                                onChange = {handleChangeFilter}
+                        />
+                        <label htmlFor="favorites">Mis favoritas</label>
+                      </div>
                 }
             </div>
 
@@ -97,7 +130,7 @@ function Search(props){
                         required
                 />
 
-                <button title='Buscar'>
+                <button title='Buscar' onClick={()=>handleFilter()}>
                     <box-icon name='search-alt' color={colorIcons}></box-icon>
                 </button>
             </div>
