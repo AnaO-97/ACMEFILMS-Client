@@ -17,13 +17,13 @@ function App() {
   return (
     <div>
       {
-        pathname !== "/"
+        pathname !== "/login"
         ? <NavBar colorIcons= {colorIcons} 
                   pathname= {pathname}/>
         : null
       }      
       <Routes>
-        <Route exact path= "/"
+        <Route exact path= "/login"
              element   = { <FormLogin type= "Ingresar" 
                                       colorIcons= {colorIcons}
                           /> } 

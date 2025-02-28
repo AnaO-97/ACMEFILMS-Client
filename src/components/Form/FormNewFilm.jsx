@@ -158,7 +158,7 @@ function FormNewFilm(props){
                     </div>
 
                     <div className={style.inputBox}>
-                        <box-icon name='heart-circle' type='solid' color={colorIcons} ></box-icon>
+                        <box-icon type='solid' name='star' color={colorIcons}></box-icon>
                         <input type         = "text" 
                                 name         = "score"                 
                                 autoComplete = "off"
@@ -166,7 +166,7 @@ function FormNewFilm(props){
                                 value        = {filmData.score}  
                                 required
                         />
-                        <label htmlFor="score">Puntución (1-5):</label>
+                        <label htmlFor="score">Puntuación (1-5):</label>
                     </div>
 
                     <div className={style.inputBox}>

@@ -1,9 +1,9 @@
 .detailContainer{
     position: fixed;
-    top: 21vh;
+    top: 11vh;
     left:0.2vw;
 
-    height: 78vh;
+    height: 88vh;
     width: 99.5vw;
 
     /* border: solid 2px red; */
@@ -11,7 +11,7 @@
 
 .detailContainer .buttonsBox{
     position: fixed;
-    top: 21vh;
+    top: 9.7vh;
     right: 0;
 
     height: 60vh;
@@ -35,14 +35,16 @@
     top: 0;
     left:0.2vw;
 
-    height: 10vh;
-    width: 95vw;
+    height: 13vh;
+    width: 94vw;
 
     display: flex;
-    align-items: center;
+    align-items: space-around;
     justify-content: center;
 
-    /* border: solid 1px yellow; */
+    border-radius: 1vw;
+    border-top: solid 1px rgb(255, 102, 0);
+    border-bottom: solid 1px rgb(255, 102, 0);
 }
 
 h2,h3,h4{
@@ -52,8 +54,9 @@ h2,h3,h4{
 
 .detailContainer .headInformation h4{    
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1vh;
+    left: 1vw;
+    color: rgba(255, 255, 255, 0.47)
 }
 
 .detailContainer .headInformation .title{
@@ -68,22 +71,33 @@ h2,h3,h4{
     /* border: solid 1px green; */
 }
 
+.detailContainer .headInformation .title h2{
+    color:rgba(255, 102, 0, 0.562);    
+}
+
+.detailContainer .headInformation .title h3{
+    color: rgba(255, 255, 255, 0.47)   
+}
+
 .detailContainer .imgSynopsis {
     position: relative;
-    left:0.2vw;
+    left:0.4vw;
 
-    width: 95vw;
-    height: 50vh;  
+    margin-top: 3vh;
 
+    width: 55vw;
+    height: 55vh;  
+
+    border-radius: 1vw;
+    border-left: solid 1px rgb(255, 102, 0);
     /* border: solid 1px yellow; */
 }
 
 .detailContainer .imgSynopsis .imgContainer{
     position: absolute;
-    margin-top: 7vh;
 
-    width: 40vw;
-    height: 45vh;
+    width: 30vw;
+    height: 55vh;
 
     display: flex;
     flex-direction: column;
@@ -95,14 +109,15 @@ h2,h3,h4{
 
 .detailContainer .imgSynopsis .imgContainer .score{
     position: absolute;
-    bottom: -5vh;
+    bottom: 1vh;
 
     /* border: solid 1px white; */
 }
 
 .detailContainer .imgSynopsis .imgContainer img{
     position: absolute;
-    left:13vw;
+    top: 3vh;
+    /* left:13vw; */
 
     width: 15vw;
     height: 43vh;
@@ -116,25 +131,25 @@ h2,h3,h4{
 
 .detailContainer .imgSynopsis .synopsisAboutFilmBox{
     position: absolute;
-    left: 40vw;
-
+    left: 39vw;
+    
     width: 55vw;
-    height: 50vh;
-
-    /* border: solid 1px green; */
-}
-
-.detailContainer .imgSynopsis .synopsisAboutFilmBox{
-    position: absolute;
-    width: 55vw;
-    height: 50vh;
+    height: 55vh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 
+ 
+    border-radius: 1vw;
+    border-right: solid 1px rgb(255, 102, 0);
     /* border: solid 1px blue; */
+}
+
+.detailContainer .imgSynopsis .synopsisAboutFilmBox p{
+    padding-right: 1vw;
+    font-size: 1.28em;
 }
 
 .detailContainer .imgSynopsis .synopsisAboutFilmBox .actors{
@@ -142,11 +157,17 @@ h2,h3,h4{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    color:rgba(255, 102, 0, 0.562);
+}
+
+.detailContainer .imgSynopsis .synopsisAboutFilmBox .studio{
 }
 
 .detailContainer .imgSynopsis .synopsisAboutFilmBox .moreInformation{
     height: 5vh;
     width: 40vw;
+
+    color:rgba(255, 102, 0, 0.562);
 
     display: flex;
     align-items: center;

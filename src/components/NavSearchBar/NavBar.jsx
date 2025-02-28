@@ -13,7 +13,7 @@ function NavBar(props){
     const isUser = useSelector(( state )=> state.user)
 
     const goToHome  = () => navigate("/newFilm")
-    const goToLogin = () => navigate("/")
+    const goToLogin = () => navigate("/login")
 
     return(
         <div>

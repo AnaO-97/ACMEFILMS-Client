@@ -79,7 +79,7 @@ function Detail(){
                     {film.synopsis &&<p>{film.synopsis}</p>}
                     <div className={style.actors}>
                         {film.actors &&
-                            film.actors.map((name, index)=><h3 key={index}>** {name} </h3>)
+                            film.actors.map((name, index)=><h3 key={index}>**{name}**</h3>)
                         }
                     </div>
                     <div className={style.studio}>
@@ -87,7 +87,7 @@ function Detail(){
                     </div>
                     <div className={style.moreInformation}>
                         {film.minimumAge &&<h3>Edad mínima permitida: {film.minimumAge}años</h3>}
-                        {film.genre &&<h3>Género:{film.genre}</h3>}
+                        {film.genre &&<h3>Género: {film.genre}</h3>}
                     </div>
                 </div>
                 <div className={style.buttonsBox}>
